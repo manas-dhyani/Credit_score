@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Credit Risk Evaluation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script
+      defer
+      src="{{ url_for('static', filename='js/script.js') }}"
+    ></script>
+  </head>
+  <body>
+    <div class="app-container">
+      <header class="app-header">
+        <h1>🧾 Credit Risk Evaluation Portal</h1>
+        <p>Powered by Logistic Regression | Secure & Confidential</p>
+      </header>
+
+      <section class="form-section">
+        <form action="/predict" method="post" class="risk-form">
+          {% for feature in features %}
+          <div class="form-group">
+            <div class="slider-header">
+              <label for="{{ feature }}"
+                >{{ feature.replace('_', ' ').title() }}</label
+              >
+              <span id="{{ feature }}_val">50</span>
+            </div>
+            <input
+              type="range"
+              min="0"
+              max="100"
+              step="1"
+              value="50"
+              name="{{ feature }}"
+              id="{{ feature }}"
+              oninput="updateValue(this)"
+            />
+          </div>
+          {% endfor %}
+
+          <button type="submit" class="submit-btn">Evaluate Risk</button>
+        </form>
+      </section>
+
+      <footer class="app-footer">
+        <p>&copy; 2025 Secure Bank Ltd. All rights reserved.</p>
+      </footer>
+    </div>
+  </body>
+</html>

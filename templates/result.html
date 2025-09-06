@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Risk Evaluation Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <h1>Credit Risk Result</h1>
+    </header>
+
+    <main class="form-section">
+      <div class="risk-form result-box">
+        <h2>Your Risk Evaluation:</h2>
+        <p style="font-size: 1.5rem; margin-top: 10px;"><strong>{{ result }}</strong></p>
+        <br>
+        <a href="/" class="submit-btn" style="text-align:center; display:block;">Evaluate Another</a>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>&copy; 2025 Secure Bank Ltd. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
